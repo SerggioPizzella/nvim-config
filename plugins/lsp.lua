@@ -67,6 +67,7 @@ return {
                 }
             },
             html = {},
+            powershell_es = {},
             -- tsserver = {},
             -- eslint = {},
             -- prettierd = {},
