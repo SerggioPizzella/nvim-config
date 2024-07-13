@@ -54,11 +54,7 @@ return {
         end
 
         local servers = {
-            clangd = {},
-            -- gopls = {},
-            -- pyright = {},
             jdtls = {},
-            rust_analyzer = {},
             lua_ls = {
                 Lua = {
                     workspace = { checkThirdParty = false },
@@ -71,8 +67,8 @@ return {
                 }
             },
             html = {},
-            tsserver = {},
-            eslint = {},
+            -- tsserver = {},
+            -- eslint = {},
             -- prettierd = {},
         }
 
@@ -87,7 +83,7 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-        mason_lspconfig.setup_handlers {
+        mason_lspconfig.setup_handlers({
             function(server_name)
                 require('lspconfig')[server_name].setup {
                     capabilities = capabilities,
@@ -96,7 +92,7 @@ return {
                     filetypes = (servers[server_name] or {}).filetypes,
                 }
             end,
-        }
+        })
 
         -- [[ Configure nvim-cmp ]]
         -- See `:help cmp`

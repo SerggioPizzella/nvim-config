@@ -68,14 +68,15 @@ return {
             })
         end, { desc = '[/] Fuzzily search in current buffer' })
 
+        local builtin = require('telescope.builtin')
+
         local function telescope_live_grep_open_files()
-            require('telescope.builtin').live_grep {
+            builtin.live_grep {
                 grep_open_files = true,
                 prompt_title = 'Live Grep in Open Files',
             }
         end
 
-        local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>pf', builtin.find_files, { desc = "[P]roject [F]iles" })
         vim.keymap.set('n', '<leader>pg', builtin.git_files, { desc = "[P]roject [G]it Files" })
         vim.keymap.set('n', '<leader>ps', function()

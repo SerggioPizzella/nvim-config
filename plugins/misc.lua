@@ -1,18 +1,8 @@
 return {
-    {
-        'rose-pine/neovim',
-        name = 'rose-pine',
-        opts = {
-            disable_background = true
-        }
-    },
-
     -- Plugin to show you pending keybinds.
     { 'folke/which-key.nvim', opts = {} },
 
-    -- Set lualine as statusline
-
-     -- Autocompletion
+    -- Autocompletion
     {
          'hrsh7th/nvim-cmp',
          dependencies = {
@@ -37,5 +27,5 @@ return {
     },
 
     -- Copilot
-    'github/copilot.vim'
+    'github/copilot.vim',
 }
