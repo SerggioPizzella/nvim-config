@@ -68,7 +68,8 @@ return {
             },
             html = {},
             powershell_es = {},
-            -- tsserver = {},
+            tailwindcss = {},
+            tsserver = {},
             -- eslint = {},
             -- prettierd = {},
         }
