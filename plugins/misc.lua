@@ -2,6 +2,9 @@ return {
     -- Plugin to show you pending keybinds.
     { 'folke/which-key.nvim', opts = {} },
 
+    -- Rose Pine Theme
+    { 'rose-pine/neovim', name = 'rose-pine' },
+
     -- Autocompletion
     {
          'hrsh7th/nvim-cmp',
