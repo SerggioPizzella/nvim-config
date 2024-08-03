@@ -3,23 +3,23 @@ return {
     { 'folke/which-key.nvim', opts = {} },
 
     -- Rose Pine Theme
-    { 'rose-pine/neovim', name = 'rose-pine' },
+    { 'rose-pine/neovim',     name = 'rose-pine' },
 
     -- Autocompletion
     {
-         'hrsh7th/nvim-cmp',
-         dependencies = {
-             -- Snippet Engine & its associated nvim-cmp source
-             'L3MON4D3/LuaSnip',
-             'saadparwaiz1/cmp_luasnip',
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            -- Snippet Engine & its associated nvim-cmp source
+            'L3MON4D3/LuaSnip',
+            'saadparwaiz1/cmp_luasnip',
 
-             -- Adds LSP completion capabilities
-             'hrsh7th/cmp-nvim-lsp',
+            -- Adds LSP completion capabilities
+            'hrsh7th/cmp-nvim-lsp',
 
-             -- Adds a number of user-friendly snippets
-             'rafamadriz/friendly-snippets',
-         },
-     },
+            -- Adds a number of user-friendly snippets
+            'rafamadriz/friendly-snippets',
+        },
+    },
 
     -- Markdown Preview
     {

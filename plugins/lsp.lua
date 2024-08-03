@@ -94,6 +94,9 @@ return {
                     filetypes = (servers[server_name] or {}).filetypes,
                 }
             end,
+
+            -- Disable jdtls from starting up here, it is handled by nvim-jdtls
+            ["jdtls"] = function() end,
         })
 
         -- [[ Configure nvim-cmp ]]
