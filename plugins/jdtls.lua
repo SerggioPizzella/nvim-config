@@ -10,8 +10,8 @@ return {
                 '-configuration', [[C:\Users\serggio\.cache\jdtls\config]],
                 '-data', [[C:\Users\serggio\.cache\jdtls\workspacejdtls]]
             },
-            root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
-            -- root_dir = require('jdtls.setup').find_root({ 'gradle.build', 'pom.xml' }),
+            root_dir = require('jdtls.setup').find_root({ 'gradle.build', 'pom.xml' }),
+
         }
 
         vim.api.nvim_create_autocmd('BufEnter', {

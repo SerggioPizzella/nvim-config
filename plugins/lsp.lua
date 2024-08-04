@@ -96,8 +96,13 @@ return {
             end,
 
             -- Disable jdtls from starting up here, it is handled by nvim-jdtls
-            ["jdtls"] = function() end,
+            ["jdtls"] = function()
+                vim.api.nvim_create_autocmd("LspAttach", {
+                    callback = function(args)
+                        on_attach({}, args.bufnr)
+                    end,
+                })
+            end,
         })
-
     end,
 }
