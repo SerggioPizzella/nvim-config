@@ -16,9 +16,6 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
--- lsp
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "[F]ormat file" })
-
 -- Search and Replace
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

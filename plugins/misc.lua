@@ -1,24 +1,13 @@
 return {
-    -- Plugin to show you pending keybinds.
-    { 'folke/which-key.nvim', opts = {} },
-
     -- Rose Pine Theme
-    { 'rose-pine/neovim',     name = 'rose-pine' },
-
-    -- Autocompletion
     {
-        'hrsh7th/nvim-cmp',
-        dependencies = {
-            -- Snippet Engine & its associated nvim-cmp source
-            'L3MON4D3/LuaSnip',
-            'saadparwaiz1/cmp_luasnip',
-
-            -- Adds LSP completion capabilities
-            'hrsh7th/cmp-nvim-lsp',
-
-            -- Adds a number of user-friendly snippets
-            'rafamadriz/friendly-snippets',
-        },
+        'rose-pine/neovim',
+        name = 'rose-pine',
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme('rose-pine')
+            vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+        end
     },
 
     -- Markdown Preview

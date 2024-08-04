@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- disable netrw for nvim-tree
-vim.g.loaded_netrw       = 1
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.number = true
@@ -23,9 +23,13 @@ vim.o.smartcase = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.inccommand = "split"
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
+vim.opt.showmode = false
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "80"
+vim.opt.timeoutlen = 300
+
+vim.opt.colorcolumn = "+80"

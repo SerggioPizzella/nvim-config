@@ -1,25 +1,15 @@
 return {
-    "mhartington/formatter.nvim",
+    'stevearc/conform.nvim',
+    event = 'BufWritePre',
+    cmd = 'ConformInfo',
 
     config = function()
-        -- local default_formatters = require("formatter.defaults")
-        -- local prettierd = default_formatters.prettierd
-
-        require("formatter").setup({
-            filetype = {
-                -- javascript = { prettierd },
-                -- typescript = { prettierd },
-                -- javascriptreact = { prettierd },
-                -- typescriptreact = { prettierd },
-
-                ["*"] = {
-                    require("formatter.filetypes.any").remove_trailing_whitespace
-                },
-            }
+        require('conform').setup({
+            notify_on_error = false,
         })
 
-        -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        --     command = "FormatWrite"
-        -- })
-    end
+        vim.keymap.set('n', '<leader>f', function()
+            require('conform').format({ async = true, lsp_format = "fallback" })
+        end, { desc = '[F]ormat buffer' })
+    end,
 }
