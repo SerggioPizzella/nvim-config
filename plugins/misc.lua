@@ -20,4 +20,7 @@ return {
 
     -- Copilot
     'github/copilot.vim',
+
+    -- PICO-8,
+    'Bakudankun/PICO-8.vim',
 }

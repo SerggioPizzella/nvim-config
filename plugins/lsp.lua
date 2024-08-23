@@ -72,6 +72,9 @@ return {
             tsserver = {},
             -- eslint = {},
             -- prettierd = {},
+            pico8_ls = {
+                filetypes = { 'pico8' },
+            },
         }
 
         -- Setup mason before mason-lspconfig
