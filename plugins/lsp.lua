@@ -80,15 +80,13 @@ return {
       tsserver = {},
       biome = {},
       -- prettierd = {},
-      pico8_ls = {
-        filetypes = { 'pico8' },
-      },
     }
 
     -- Setup mason before mason-lspconfig
     require('mason').setup()
     local mason_lspconfig = require('mason-lspconfig')
     mason_lspconfig.setup({
+      automatic_installation = false,
       ensure_installed = vim.tbl_keys(servers),
     })
 
