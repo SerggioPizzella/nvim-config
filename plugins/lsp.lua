@@ -77,7 +77,7 @@ return {
       cssls = {},
       tailwindcss = {},
       powershell_es = {},
-      tsserver = {},
+      -- tsserver = {},
       biome = {},
       -- prettierd = {},
     }
@@ -94,6 +94,10 @@ return {
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
 
+    require("lspconfig").robotcode.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
     mason_lspconfig.setup_handlers({
       function(server_name)
         require('lspconfig')[server_name].setup {
@@ -104,16 +108,17 @@ return {
         }
       end,
 
-      -- Disable tsserver from starting up here, it is handled by ts-tools.
-      ["tsserver"] = function()
+      -- Disable jdtls from starting up here, it is handled by nvim-jdtls.
+      ["jdtls"] = function()
         vim.api.nvim_create_autocmd("LspAttach", {
           callback = function(args)
             on_attach({}, args.bufnr)
           end,
         })
       end,
-      -- Disable jdtls from starting up here, it is handled by nvim-jdtls.
-      ["jdtls"] = function()
+
+      -- Disable tailwindcss from starting up here, it is handled by tailwind-tools
+      ["tailwindcss"] = function()
         vim.api.nvim_create_autocmd("LspAttach", {
           callback = function(args)
             on_attach({}, args.bufnr)

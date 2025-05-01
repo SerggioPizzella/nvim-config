@@ -8,12 +8,14 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
-vim.opt.smartindent = true
+vim.opt.virtualedit = "block"
 
 vim.opt.wrap = false
 
@@ -25,10 +27,10 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.inccommand = "split"
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 999
 vim.opt.signcolumn = "yes"
 
-vim.opt.showmode = false
+-- Wait less to perform actions
 vim.opt.updatetime = 50
 vim.opt.timeoutlen = 300
 
