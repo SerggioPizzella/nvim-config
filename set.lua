@@ -11,10 +11,6 @@ vim.opt.relativenumber = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-
 vim.opt.virtualedit = "block"
 
 vim.opt.wrap = false
@@ -31,7 +27,18 @@ vim.opt.scrolloff = 999
 vim.opt.signcolumn = "yes"
 
 -- Wait less to perform actions
-vim.opt.updatetime = 50
+vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
 vim.opt.colorcolumn = "80"
+vim.opt.showmode = false
+
+vim.opt.undofile = true
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+vim.opt.confirm = true

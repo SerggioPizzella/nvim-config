@@ -1,9 +1,9 @@
 return {
-    'nvim-lualine/lualine.nvim',
+  'nvim-lualine/lualine.nvim',
 
-    opts = {
-        options = { theme = 'palenight' }
-    },
+  opts = {
+    options = { theme = 'palenight' },
+  },
 
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
 }

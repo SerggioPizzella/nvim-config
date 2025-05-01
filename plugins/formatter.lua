@@ -1,28 +1,37 @@
 return {
-    'stevearc/conform.nvim',
-    event = 'BufWritePre',
-    cmd = 'ConformInfo',
-
-    config = function()
-        ---@module "conform"
-        ---@type conform.setupOpts
-        local config = {
-            notify_on_error = false,
-            default_format_opts = {
-                async = true,
-                lsp_format = "fallback",
-            },
-            formatters_by_ft = {
-                javascript = { "prettierd", "prettier", stop_after_first = true },
-                typescript = { "prettierd", "prettier", stop_after_first = true },
-                typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-                ["_"] = { "trim_whitespace" },
-            },
+  'stevearc/conform.nvim',
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
+  keys = {
+    {
+      '<leader>f',
+      function()
+        require('conform').format { async = true, lsp_format = 'fallback' }
+      end,
+      mode = '',
+      desc = '[F]ormat buffer',
+    },
+  },
+  opts = {
+    notify_on_error = false,
+    format_on_save = function(bufnr)
+      -- Disable "format_on_save lsp_fallback".
+      local disable_filetypes = { c = true, cpp = true }
+      if disable_filetypes[vim.bo[bufnr].filetype] then
+        return nil
+      else
+        return {
+          timeout_ms = 500,
+          lsp_format = 'fallback',
         }
-        require('conform').setup(config)
-
-        vim.keymap.set('n', '<leader>f', function()
-            require('conform').format()
-        end, { desc = '[F]ormat buffer' })
+      end
     end,
+    formatters_by_ft = {
+      lua = { 'stylua' },
+      javascript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescript = { 'prettierd', 'prettier', stop_after_first = true },
+      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+      ['_'] = { 'trim_whitespace' },
+    },
+  },
 }
