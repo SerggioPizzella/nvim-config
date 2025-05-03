@@ -8,8 +8,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     'nvim-treesitter/nvim-treesitter',
     {
       'nvim-telescope/telescope-fzf-native.nvim',
-      build =
-        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
     },
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
@@ -30,7 +29,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     pcall(require('telescope').load_extension, 'ui-select')
 
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>pg', builtin.git_files, { desc = "[P]roject [G]it Files" })
+    vim.keymap.set('n', '<leader>pg', builtin.git_files, { desc = '[P]roject [G]it Files' })
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
