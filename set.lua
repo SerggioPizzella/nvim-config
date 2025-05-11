@@ -11,7 +11,7 @@ vim.opt.relativenumber = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.virtualedit = "block"
+vim.opt.virtualedit = 'block'
 
 vim.opt.wrap = false
 
@@ -21,16 +21,16 @@ vim.o.smartcase = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.inccommand = "split"
+vim.opt.inccommand = 'split'
 
 vim.opt.scrolloff = 999
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = 'yes'
 
 -- Wait less to perform actions
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = '80'
 vim.opt.showmode = false
 
 vim.opt.undofile = true

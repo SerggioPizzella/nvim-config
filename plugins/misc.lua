@@ -21,7 +21,7 @@ return {
   },
 
   -- Copilot
-  'github/copilot.vim',
+  -- 'github/copilot.vim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',

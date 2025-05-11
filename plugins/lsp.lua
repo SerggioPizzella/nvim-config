@@ -110,6 +110,9 @@ return {
     local servers = {
       html = {},
       cssls = {},
+      clangd = {
+        cmd = { 'clangd', '--compile-commands-dir=build' },
+      },
       tailwindcss = {},
       powershell_es = {},
       biome = {},
