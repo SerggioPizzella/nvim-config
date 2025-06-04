@@ -137,6 +137,9 @@ return {
       'stylua', -- Used to format Lua code
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+
+    -- Add servers that I don't want to auto install, as I transition away from Mason.
+    servers.rust_analyzer = {}
     require('mason-lspconfig').setup {
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,

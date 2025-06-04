@@ -1,4 +1,5 @@
 return {
-  'pandasoli/nekovim',
+  'vyfor/cord.nvim',
+  build = ':Cord update',
   opts = {},
 }
