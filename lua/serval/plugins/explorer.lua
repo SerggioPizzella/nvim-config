@@ -15,5 +15,9 @@ return {
 
     vim.keymap.set('n', '<leader>pv', ':Neotree<CR>', { desc = '[P]roject [V]iew' })
     vim.keymap.set('n', '<leader>pt', ':Neotree toggle<CR>', { desc = '[P]roject [T]oggle' })
+
+    -- disable netrw for nvim-tree
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
   end,
 }
