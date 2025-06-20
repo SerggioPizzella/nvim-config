@@ -136,7 +136,13 @@ return {
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
     })
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+    require('mason-tool-installer').setup { ensure_installed = vim.tbl_extend("error",
+      ensure_installed, 
+      {
+        isort = {},
+        black = {},
+      }
+    )}
 
     -- Add servers that I don't want to auto install, as I transition away from Mason.
     servers.rust_analyzer = {}
