@@ -6,7 +6,7 @@ return {
     {
       '<leader>f',
       function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
+        require('conform').format({ async = true, lsp_format = 'fallback' })
       end,
       mode = '',
       desc = '[F]ormat buffer',
@@ -28,7 +28,7 @@ return {
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
-      python = { "isort", "black" },
+      python = { 'ruff_fix', 'ruff_format', 'ruff_organize_imports' },
       javascript = { 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'prettierd', 'prettier', stop_after_first = true },
       typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },

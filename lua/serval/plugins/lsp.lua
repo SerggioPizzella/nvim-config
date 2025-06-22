@@ -9,7 +9,7 @@ return {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
 
     -- Useful status updates for LSP.
-    { 'j-hui/fidget.nvim', opts = {} },
+    { 'j-hui/fidget.nvim',       opts = {} },
 
     -- Allows extra capabilities provided by blink.cmp
     'saghen/blink.cmp',
@@ -59,14 +59,14 @@ return {
             group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
             callback = function(event2)
               vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+              vim.api.nvim_clear_autocmds({ group = 'kickstart-lsp-highlight', buffer = event2.buf })
             end,
           })
         end
 
         if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
           map('<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
           end, '[T]oggle Inlay [H]ints')
         end
       end,
@@ -74,7 +74,7 @@ return {
 
     -- Diagnostic Config
     -- See :help vim.diagnostic.Opts
-    vim.diagnostic.config {
+    vim.diagnostic.config({
       severity_sort = true,
       float = { border = 'rounded', source = 'if_many' },
       underline = { severity = vim.diagnostic.severity.ERROR },
@@ -99,7 +99,7 @@ return {
           return diagnostic_message[diagnostic.severity]
         end,
       },
-    }
+    })
 
     -- Enable the following language servers
     --  - cmd (table): Override the default command used to start the server
@@ -116,6 +116,22 @@ return {
       tailwindcss = {},
       powershell_es = {},
       biome = {},
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pyflakes = { enabled = false },
+              pycodestyle = { enabled = false },
+              autopep8 = { enabled = false },
+              yapf = { enabled = false },
+              mccabe = { enabled = false },
+              pylsp_mypy = { enabled = false },
+              pylsp_black = { enabled = false },
+              pylsp_isort = { enabled = false },
+            },
+          },
+        },
+      },
       lua_ls = {
         settings = {
           Lua = {
@@ -135,18 +151,13 @@ return {
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
+      'ruff',   -- Python formatter and linter
     })
-    require('mason-tool-installer').setup { ensure_installed = vim.tbl_extend("error",
-      ensure_installed, 
-      {
-        isort = {},
-        black = {},
-      }
-    )}
+    require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
 
     -- Add servers that I don't want to auto install, as I transition away from Mason.
     servers.rust_analyzer = {}
-    require('mason-lspconfig').setup {
+    require('mason-lspconfig').setup({
       ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
       automatic_installation = false,
       handlers = {
@@ -156,7 +167,7 @@ return {
           vim.lsp.enable(server_name)
         end,
       },
-    }
+    })
 
     -- NOTE: Some servers still require the nvim-lspconfig setup until they are updated
     -- Add this template inside the handler function after initializing config if you encounter issues with any lsp
